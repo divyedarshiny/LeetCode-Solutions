@@ -1,1 +1,1 @@
-# LeetCode-Solutions
+This repository contains my solutions to various LeetCode problems. Each problem solution is implemented in Java and organized into separate files within directories based on categories, data structures, or problem difficulty.
