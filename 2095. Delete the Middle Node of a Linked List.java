@@ -8,27 +8,27 @@
  *     ListNode(int val, ListNode next) { this.val = val; this.next = next; }
  * }
  */
+
 class Solution {
     public ListNode deleteMiddle(ListNode head) {
-        if(head==null || head.next==null){
-            return null;
+        if (head == null || head.next == null) {
+            return null; 
         }
 
-        ListNode current = head;
-        int length = 0;
-        while(current!=null){
-            length++;
-            current = current.next;
+        ListNode slow = head;
+        ListNode fast = head;
+        ListNode prev = null;
+
+        while (fast != null && fast.next != null) {
+            prev = slow;
+            slow = slow.next;
+            fast = fast.next.next;
         }
 
-        int middleIndex = length/2;
-        ListNode dummy = head;
-        current = dummy;
-        for(int i=0;i<middleIndex-1;i++){
-            current = current.next;
+        if (prev != null) {
+            prev.next = slow.next;
         }
 
-        current.next = current.next.next;
-        return dummy;
+        return head;
     }
 }
